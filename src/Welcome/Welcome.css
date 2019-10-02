@@ -1,0 +1,15 @@
+.Welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+#startTxt {
+  max-width: 40em;
+}
+
+#startTxt .btn {
+  margin-top: 2em;
+}

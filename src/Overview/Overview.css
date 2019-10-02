@@ -1,0 +1,28 @@
+#overviewDishes {
+    display: flex;
+    justify-content: center;
+}
+
+#overviewDishes .price {
+    float: right;
+}
+
+#overviewDishes .total {
+    float: right;
+    font-size: 2em;
+    margin: 2em;
+}
+
+#overviewDishes .dish {
+    cursor: pointer;
+}
+
+#overviewPrint {
+    padding: 2em;
+    text-align: center;
+}
+
+#overviewPrint button {
+    font-size: 1.5em;
+}
+

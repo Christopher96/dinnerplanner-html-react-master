@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import "./Sidebar.css";
 
 class Sidebar extends Component {
@@ -30,20 +31,20 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div className="Sidebar" class="col-md-4">
-        <p class="title"><span class="value-num-guests">{this.state.numberOfGuests}</span> Guests</p>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">People</span>
+      <div className="Sidebar col-md-3">
+        <p className="title"><span className="value-num-guests">{this.state.numberOfGuests}</span> Guests</p>
+        <div className="input-group">
+            <div className="input-group-prepend">
+                <span className="input-group-text">People</span>
             </div>
           <input
             type="number"
-            class="input-num-guests form-control"
+            className="input-num-guests form-control"
             value={this.state.numberOfGuests}
             onChange={this.onNumberOfGuestsChanged}
           />
         </div>
-        <table id="dishTable" class="table">
+        <table id="dishTable" className="table">
             <thead>
                 <tr>
                     <th scope="col">Dish Name</th>
@@ -53,12 +54,12 @@ class Sidebar extends Component {
             <tbody>
             </tbody>
         </table>
-        <div class="total">
-            <b>Total: </b><span>SEK </span><span class="value-total-price"></span>
+        <div className="total">
+            <b>Total: </b><span>SEK </span><span className="value-total-price"></span>
         </div>
-        <button id="confirmDinner" class="btn btn-primary">
+        <Link to="/overview" className="btn btn-primary">
             Confirm Dinner
-        </button>
+        </Link>
       </div>
     );
   }

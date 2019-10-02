@@ -7,9 +7,9 @@ class SelectDish extends Component {
   render() {
     return (
       <div className="SelectDish">
-        <div class="row">
+        <div className="row">
             <Sidebar model={this.props.model} />
-            <Dishes />
+            <Dishes model={this.props.model} />
         </div>
       </div>
     );

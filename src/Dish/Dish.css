@@ -1,0 +1,27 @@
+.dish {
+  padding: 2em;
+  width: 15em;
+}
+
+.dish p {
+  padding: .5em;
+  text-align: center;
+  background-color: grey;
+  color: white;
+}
+
+.dish img {
+  width: 100%;
+}
+
+.banner {
+  background-color: grey;
+}
+
+.banner.left {
+  float: left;
+}
+
+.banner.right {
+  float: right;
+}

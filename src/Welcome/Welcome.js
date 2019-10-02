@@ -6,11 +6,10 @@ class Welcome extends Component {
   render() {
     return (
       <div className="Welcome">
-        <p>Welcome to the dinner planner React Startup code!</p>
-
-        <Link to="/search">
-          <button>Start planning</button>
-        </Link>
+        <div id="startTxt">
+          <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod</span>
+          <Link to="/search" className="btn btn-primary">Create new dinner</Link>
+        </div>
       </div>
     );
   }

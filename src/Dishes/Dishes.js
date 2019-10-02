@@ -1,71 +1,71 @@
 import React, { Component } from "react";
-
-// Alternative to passing the moderl as the component property,
-// we can import the model instance directly
-import modelInstance from "../data/DinnerModel";
+import Loader from "../Loader/Loader";
 import "./Dishes.css";
 
 class Dishes extends Component {
   constructor(props) {
     super(props);
-    // We create the state to store the various statuses
-    // e.g. API data loading or error
+
     this.state = {
-      status: "LOADING"
+      status: "IDLE"
     };
   }
 
-  fetchDishes() {
-    // when data is retrieved we update the state
-    // this will cause the component to re-render
-    modelInstance
+  getDishes = () => {
+    this.props.model
       .getAllDishes()
       .then(dishes => {
+        console.log(dishes);
+        return;
         this.setState({
-          status: "LOADED",
-          dishes: dishes.results
+          dishes,
+          status: "LOADED"
         });
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e);
         this.setState({
           status: "ERROR"
         });
       });
+
+    this.setState({
+      status: "LOADING"
+    });
   }
 
   render() {
     let dishesList = null;
 
-    // depending on the state we either generate
-    // useful message to the user or show the list
-    // of returned dishes
     switch (this.state.status) {
       case "LOADING":
-        dishesList = <em>Loading...</em>;
+        dishesList = <Loader />;
         break;
       case "LOADED":
         dishesList = this.state.dishes.map(dish => (
           <li key={dish.id}>{dish.title}</li>
         ));
         break;
+      case "ERROR":
+        dishesList = <b>Unable to retrieve dishes...</b>;
+        break;
       default:
-        dishesList = <b>Failed to load data, please try again</b>;
         break;
     }
 
     return (
-      <div className="Dishes" class="col-md-8">
-        <p class="title">FIND A DISH</p>
-        <div class="input-group">
-          <input id="dishQuery" class="form-control" type="text" />
-          <select id="dishType" class="form-control custom-select">
+      <div className="Dishes col-md-9">
+        <p className="title">FIND A DISH</p>
+        <div className="input-group">
+          <input id="dishQuery" className="form-control" type="text" />
+          <select id="dishType" className="form-control custom-select">
             <option value="">Choose...</option>
             <option value="starter">Starter</option>
             <option value="main dish">Main dish</option>
             <option value="dessert">Dessert</option>
           </select>
-          <div class="input-group-append">
-            <button id="searchBtn" class="btn btn-primary">Search</button>
+          <div className="input-group-append">
+            <button onClick={this.getDishes} className="btn btn-primary">Search</button>
           </div>
         </div>
         <div id="dish-list">

@@ -1,0 +1,11 @@
+.Printout .row {
+  padding: 2em;
+}
+
+.Printout {
+  align-items: center;
+}
+
+#toPrintBtn {
+  text-align: center;
+}
