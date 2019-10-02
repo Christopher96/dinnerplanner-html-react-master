@@ -5,52 +5,60 @@ class Sidebar extends Component {
   constructor(props) {
     super(props);
 
-    // we put on state the properties we want to use and modify in the component
     this.state = {
       numberOfGuests: this.props.model.getNumberOfGuests()
     };
   }
 
-  // this methods is called by React lifecycle when the
-  // component is actually shown to the user (mounted to DOM)
-  // that's a good place to setup model observer
   componentDidMount() {
     this.props.model.addObserver(this);
   }
 
-  // this is called when component is removed from the DOM
-  // good place to remove observer
   componentWillUnmount() {
     this.props.model.removeObserver(this);
   }
 
-  // in our update function we modify the state which will
-  // cause the component to re-render
   update() {
     this.setState({
       numberOfGuests: this.props.model.getNumberOfGuests()
     });
   }
 
-  // our handler for the input's on change event
   onNumberOfGuestsChanged = e => {
     this.props.model.setNumberOfGuests(e.target.value);
   };
 
   render() {
     return (
-      <div className="Sidebar">
-        <h3>This is the sidebar</h3>
-        <p>
-          People:
+      <div className="Sidebar" class="col-md-4">
+        <p class="title"><span class="value-num-guests">{this.state.numberOfGuests}</span> Guests</p>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">People</span>
+            </div>
           <input
             type="number"
+            class="input-num-guests form-control"
             value={this.state.numberOfGuests}
             onChange={this.onNumberOfGuestsChanged}
           />
-          <br />
-          Total number of guests: {this.state.numberOfGuests}
-        </p>
+        </div>
+        <table id="dishTable" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Dish Name</th>
+                    <th scope="col">Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="total">
+            <b>Total: </b><span>SEK </span><span class="value-total-price"></span>
+        </div>
+        <button id="confirmDinner" class="btn btn-primary">
+            Confirm Dinner
+        </button>
       </div>
     );
   }

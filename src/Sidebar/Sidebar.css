@@ -1,0 +1,12 @@
+.Sidebar {
+    padding: 2em;
+}
+
+.Sidebar .input-group {
+    width: 10em !important;
+}
+
+.Sidebar .btn {
+    width: 100%;
+}
+
