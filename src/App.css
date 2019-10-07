@@ -34,11 +34,6 @@ header {
   font-size: 1.5em;
 }
 
-.added {
-  color: green;
-  visibility: hidden;
-}
-
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 600px) {

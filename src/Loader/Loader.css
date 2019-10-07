@@ -1,4 +1,4 @@
-#loader {
+.loader {
   display: flex;
   align-items: center;
   position: absolute;
@@ -10,7 +10,7 @@
   z-index: 1;
 }
 
-#loader .spinner {
+.loader .spinner {
   height: 5em;
   width: 5em;
   color: white;

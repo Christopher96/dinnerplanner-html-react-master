@@ -1,0 +1,11 @@
+.DishDetails {
+    margin-bottom: 10em;
+}
+
+.added {
+  color: green;
+}
+
+.total {
+    float: right;
+}

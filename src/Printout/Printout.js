@@ -7,21 +7,22 @@ class Printout extends Component {
     super(props);
 
     this.state = {
-      numberOfGuests: this.props.model.getNumberOfGuests()
+        numberOfGuests: this.props.model.getNumberOfGuests(),
+        menu: this.props.model.getFullMenu()
     };
   }
 
   render() {
-    let dishList = this.props.model.getFullMenu().map(dish => (
+    let dishList = this.state.menu.map(dish => (
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <img src={dish.image} alt="" />
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <p class="title">{dish.title}</p>
           <span class="information">{dish.instructions}</span>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <p class="title">Preparation</p>
           <span>Lorem laborum cupiditate odio deserunt natus. Ipsam ipsum numquam repudiandae dolorum maiores nam Fugiat beatae obcaecati voluptates recusandae harum? Unde quod nisi reiciendis veniam saepe. Temporibus repellendus quod porro deleniti</span>
         </div>

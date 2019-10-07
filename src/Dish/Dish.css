@@ -1,16 +1,16 @@
-.dish {
+.Dish {
   padding: 2em;
   width: 15em;
 }
 
-.dish p {
+.Dish p {
   padding: .5em;
   text-align: center;
   background-color: grey;
   color: white;
 }
 
-.dish img {
+.Dish img {
   width: 100%;
 }
 

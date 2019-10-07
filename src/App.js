@@ -9,39 +9,39 @@ import Overview from "./Overview/Overview";
 import "./App.css";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "Dinner Planner"
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "Dinner Planner"
+        };
+    }
 
-  render() {
-    return (
-      <div className="App">
-        <Link to="/search">
-          <header className="text-white bg-primary">
-            <span>{this.state.title}</span>
-          </header>
-        </Link>
-        <div className="container-fluid page-content">
-          <Route exact path="/" component={Welcome} />
-          <Route
-            path="/search"
-            render={() => <SelectDish getStatus={this.getStatus} setStatus={this.setStatus} model={modelInstance} />}/>
-          <Route
-            path="/details/:id"
-            render={({ match }) => <DishDetails model={modelInstance} id={match.params.id} />}/>
-          <Route
-            path="/printout"
-            render={() => <Printout model={modelInstance} />}/>
-          <Route
-            path="/overview"
-            render={() => <Overview model={modelInstance} />}/>
-        </div>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App">
+                <Link to="/search">
+                    <header className="text-white bg-primary">
+                        <span>{this.state.title}</span>
+                    </header>
+                </Link>
+                <div className="container-fluid page-content">
+                    <Route exact path="/" component={Welcome} />
+                    <Route
+                        path="/search"
+                        render={() => <SelectDish model={modelInstance} />}/>
+                    <Route
+                        path="/details/:id"
+                        render={({ match }) => <DishDetails model={modelInstance} id={match.params.id} />}/>
+                    <Route
+                        path="/printout"
+                        render={() => <Printout model={modelInstance} />}/>
+                    <Route
+                        path="/overview"
+                        render={() => <Overview model={modelInstance} />}/>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;

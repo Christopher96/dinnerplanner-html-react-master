@@ -1,20 +1,17 @@
 #overviewDishes {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-#overviewDishes .price {
+.Overview .price {
     float: right;
 }
 
-#overviewDishes .total {
+.Overview .total {
     float: right;
     font-size: 2em;
     margin: 2em;
-}
-
-#overviewDishes .dish {
-    cursor: pointer;
 }
 
 #overviewPrint {
