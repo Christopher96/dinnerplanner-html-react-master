@@ -26,6 +26,7 @@ class DishDetails extends Component {
         this.props.model
             .getDish(this.props.id)
             .then(dish => {
+                dish.price = this.props.model.getDishPrice(dish);
                 this.setState({
                     dish,
                     status: "LOADED"
@@ -45,10 +46,12 @@ class DishDetails extends Component {
         let ingredients = null;
         let image = null;
         let instructions = null;
+        let price = null;
         let added = (this.state.added) ? <span className="added"> Added &#10004;</span> : "";
 
         switch(this.state.status) {
             case "LOADED":
+        price = this.state.dish.price;
                 instructions = this.state.dish.instructions;
                 image = this.state.dish.image;
                 ingredients = this.state.dish.extendedIngredients.map(ing => {
@@ -91,7 +94,7 @@ class DishDetails extends Component {
                         <hr/>
                         <button onClick={this.addToMenu} className="btn btn-primary" disabled={added}>Add to menu</button>
                         {added}
-                        <span className="total">Sek 77.20</span>
+                        <span className="total">{price} SEK</span>
                     </div>
                 </div>
             </div>
